@@ -262,3 +262,20 @@ ul.tight strong{color:var(--ink);font-weight:700}
 :root[data-theme="dark"] .btn{background:var(--accent);color:#12181B}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .btn{background:var(--accent);color:#12181B}}
 .btn:hover{opacity:.9}
+
+.subscribe form{display:flex;flex-direction:column;gap:14px}
+.subscribe .fields{display:grid;gap:12px}
+@media(min-width:700px){.subscribe .fields{grid-template-columns:1.3fr 1fr 1fr}}
+.fld{display:flex;flex-direction:column;gap:5px}
+.fld span{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--muted)}
+.fld span em{font-style:normal;opacity:.7;text-transform:none;letter-spacing:.04em}
+.fld input{font-family:"Nunito Sans",sans-serif;font-size:15px;color:var(--ink);
+  background:var(--panel-2);border:1px solid var(--line);padding:10px 12px;width:100%}
+.fld input:focus{outline:2px solid var(--accent);outline-offset:1px}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.subrow{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.submsg{font-size:14px}
+.submsg.ok{color:var(--pos-ink)}
+.submsg.err{color:var(--neg-ink)}
+.fineprint{font-size:12px;color:var(--muted);max-width:70ch;line-height:1.5}

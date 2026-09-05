@@ -1,0 +1,18 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "ieindustrialwatch",
+  "main": "worker/index.js",
+  "compatibility_date": "2026-09-03",
+  "observability": { "enabled": true },
+  "assets": {
+    "directory": "IE Watch Site",
+    "binding": "ASSETS"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "iewatch-subscribers",
+      "database_id": "f11b2dd3-acb9-4958-8a17-6e20edad6e0d"
+    }
+  ]
+}

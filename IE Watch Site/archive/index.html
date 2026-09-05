@@ -62,6 +62,26 @@
         </div>
       </div>
     </div>
+    <section class="panel subscribe" id="subscribe">
+      <div class="panel-head">
+        <h2>Get it Friday mornings</h2>
+        <span class="note">One email a week. Unsubscribe anytime.</span>
+      </div>
+      <p style="font-size:15px;color:var(--ink-2);max-width:62ch">Each issue costs out one thing Inland Empire industrial tenants are absorbing, with the arithmetic shown. No listings, no market cheerleading.</p>
+      <form id="subForm" novalidate>
+        <div class="fields">
+          <label class="fld"><span>Email</span><input type="email" name="email" required autocomplete="email" placeholder="you@company.com"></label>
+          <label class="fld"><span>Name <em>optional</em></span><input type="text" name="name" autocomplete="name"></label>
+          <label class="fld"><span>Company <em>optional</em></span><input type="text" name="company" autocomplete="organization"></label>
+        </div>
+        <input class="hp" type="text" name="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="subrow">
+          <button type="submit" class="btn">Subscribe</button>
+          <span class="submsg" id="subMsg" role="status" aria-live="polite"></span>
+        </div>
+        <p class="fineprint">Used to send the Watch and nothing else. Never sold or shared. Ed Smith, CCIM &middot; Lee &amp; Associates &ndash; Ontario &middot; 3535 Inland Empire Blvd, Ontario, CA 91764.</p>
+      </form>
+    </section>
     <footer class="footer">
       <div class="sig-block">
         <div style="max-width:64ch">
@@ -73,6 +93,46 @@
     </footer>
 
   </div>
-</div>
+</div><script>
+(function(){
+  var f = document.getElementById('subForm');
+  if (!f) return;
+  var msg = document.getElementById('subMsg');
+  var btn = f.querySelector('button[type=submit]');
+  f.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var data = {};
+    new FormData(f).forEach(function (v, k) { data[k] = v; });
+    data.source = location.pathname;
+    msg.className = 'submsg';
+    msg.textContent = '';
+    if (!data.email) { msg.className = 'submsg err'; msg.textContent = 'Enter an email address.'; return; }
+    btn.disabled = true;
+    var label = btn.textContent;
+    btn.textContent = 'Sending';
+    fetch('/api/subscribe', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify(data)
+    })
+      .then(function (r) { return r.json(); })
+      .then(function (j) {
+        if (j && j.ok) {
+          f.reset();
+          msg.className = 'submsg ok';
+          msg.textContent = 'Done. The next issue comes Friday.';
+        } else {
+          msg.className = 'submsg err';
+          msg.textContent = (j && j.error) || 'Something went wrong. Try again.';
+        }
+      })
+      ['catch'](function () {
+        msg.className = 'submsg err';
+        msg.textContent = 'Network error. Try again.';
+      })
+      .then(function () { btn.disabled = false; btn.textContent = label; });
+  });
+})();
+</script>
 </body>
 </html>

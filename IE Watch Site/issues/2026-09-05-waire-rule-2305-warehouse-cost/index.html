@@ -118,6 +118,46 @@
     </footer>
 
   </div>
-</div>
+</div><script>
+(function(){
+  var f = document.getElementById('subForm');
+  if (!f) return;
+  var msg = document.getElementById('subMsg');
+  var btn = f.querySelector('button[type=submit]');
+  f.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var data = {};
+    new FormData(f).forEach(function (v, k) { data[k] = v; });
+    data.source = location.pathname;
+    msg.className = 'submsg';
+    msg.textContent = '';
+    if (!data.email) { msg.className = 'submsg err'; msg.textContent = 'Enter an email address.'; return; }
+    btn.disabled = true;
+    var label = btn.textContent;
+    btn.textContent = 'Sending';
+    fetch('/api/subscribe', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify(data)
+    })
+      .then(function (r) { return r.json(); })
+      .then(function (j) {
+        if (j && j.ok) {
+          f.reset();
+          msg.className = 'submsg ok';
+          msg.textContent = 'Done. The next issue comes Friday.';
+        } else {
+          msg.className = 'submsg err';
+          msg.textContent = (j && j.error) || 'Something went wrong. Try again.';
+        }
+      })
+      ['catch'](function () {
+        msg.className = 'submsg err';
+        msg.textContent = 'Network error. Try again.';
+      })
+      .then(function () { btn.disabled = false; btn.textContent = label; });
+  });
+})();
+</script>
 </body>
 </html>
