@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://ieindustrialwatch.com/</loc><lastmod>2026-10-09</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://ieindustrialwatch.com/archive/</loc><lastmod>2026-10-09</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://ieindustrialwatch.com/port-volumes/</loc><lastmod>2026-10-09</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ieindustrialwatch.com/</loc><lastmod>2026-10-16</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://ieindustrialwatch.com/archive/</loc><lastmod>2026-10-16</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ieindustrialwatch.com/port-volumes/</loc><lastmod>2026-10-16</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://ieindustrialwatch.com/about/</loc><lastmod>2026-10-09</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ieindustrialwatch.com/issues/2026-10-16-moreno-valley-truck-route-map-lease/</loc><lastmod>2026-10-16</lastmod><changefreq>yearly</changefreq><priority>0.8</priority></url>
   <url><loc>https://ieindustrialwatch.com/issues/2026-10-09-ab-98-expansion-option-20-percent-trigger/</loc><lastmod>2026-10-09</lastmod><changefreq>yearly</changefreq><priority>0.8</priority></url>
   <url><loc>https://ieindustrialwatch.com/issues/2026-10-02-industrial-lease-escalation-above-market/</loc><lastmod>2026-10-02</lastmod><changefreq>yearly</changefreq><priority>0.8</priority></url>
   <url><loc>https://ieindustrialwatch.com/issues/2026-09-25-foreign-trade-zone-lease-clause/</loc><lastmod>2026-09-25</lastmod><changefreq>yearly</changefreq><priority>0.8</priority></url>
