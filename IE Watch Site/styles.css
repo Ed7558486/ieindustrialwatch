@@ -279,3 +279,18 @@ ul.tight strong{color:var(--ink);font-weight:700}
 .submsg.ok{color:var(--pos-ink)}
 .submsg.err{color:var(--neg-ink)}
 .fineprint{font-size:12px;color:var(--muted);max-width:70ch;line-height:1.5}
+
+/* Collapsed sources. House rule: the list publishes closed under one "Sources (N)" line
+   and opens to the full publisher - document, date entries. Content stays in the HTML,
+   so the links remain crawlable. */
+.srcbox{margin-top:14px}
+.srcbox>summary{cursor:pointer;list-style:none;display:inline-flex;align-items:center;gap:7px;
+  padding:6px 0;user-select:none;-webkit-user-select:none}
+.srcbox>summary::-webkit-details-marker{display:none}
+.srcbox>summary::after{content:"";width:5px;height:5px;border-right:1.5px solid currentColor;
+  border-bottom:1.5px solid currentColor;transform:rotate(45deg);transition:transform .15s ease}
+.srcbox[open]>summary::after{transform:rotate(-135deg)}
+.srcbox>summary:hover{color:var(--accent-ink)}
+.srcbox>summary:focus-visible{outline:2px solid var(--accent-ink);outline-offset:3px}
+.srcbox>.srcs{margin-top:9px}
+@media print{.srcbox>.srcs{display:grid !important}}
