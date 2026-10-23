@@ -20,6 +20,8 @@
 
 import { EmailMessage } from "cloudflare:email";
 
+const BUILD = "2026-10-23-leadmail-probe";
+
 const EMAIL_RE = /^[^\s@,;:<>()[\]\\]+@[^\s@.,;:<>()[\]\\]+\.[^\s@,;:<>()[\]\\]{2,}$/;
 
 function json(body, status = 200) {
@@ -227,7 +229,14 @@ export default {
 
     if (url.pathname === "/api/benchmark") {
       if (request.method === "POST") return handleBenchmark(request, env);
-      return json({ ok: false, error: "Method not allowed." }, 405);
+      // A GET is not useful to a browser, so it doubles as a deploy probe:
+      // `build` says which revision is live, `mail` whether the send_email
+      // binding actually attached. Both are needed to tell a failed build
+      // apart from a failed notification.
+      return json(
+        { ok: false, error: "Method not allowed.", build: BUILD, mail: Boolean(env.LEAD_MAIL) },
+        405
+      );
     }
 
     return env.ASSETS.fetch(request);
