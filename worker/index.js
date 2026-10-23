@@ -20,7 +20,8 @@
 
 import { EmailMessage } from "cloudflare:email";
 
-const BUILD = "2026-10-23-leadmail-probe";
+const BUILD = "2026-10-23-selftest";
+const SELFTEST = "k7Qp2wVx9mLr4TzN";
 
 const EMAIL_RE = /^[^\s@,;:<>()[\]\\]+@[^\s@.,;:<>()[\]\\]+\.[^\s@,;:<>()[\]\\]{2,}$/;
 
@@ -233,6 +234,31 @@ export default {
       // `build` says which revision is live, `mail` whether the send_email
       // binding actually attached. Both are needed to tell a failed build
       // apart from a failed notification.
+      // TEMPORARY diagnostic: ?selftest=<SELFTEST> attempts a real send and
+      // reports what send_email threw, which is otherwise swallowed so a mail
+      // failure never breaks a lead capture. Remove once notification is proven.
+      if (url.searchParams.get("selftest") === SELFTEST) {
+        try {
+          await notifyBenchmark(env, {
+            email: "esmith@lee-assoc.com",
+            name: "SELF TEST",
+            city: "selftest",
+            sizeSf: "0",
+            currentRent: "0",
+            expiry: "n/a",
+            source: "selftest",
+          });
+          return json({ ok: true, build: BUILD, sent: true });
+        } catch (err) {
+          return json({
+            ok: false,
+            build: BUILD,
+            sent: false,
+            name: String(err && err.name),
+            message: String(err && err.message),
+          });
+        }
+      }
       return json(
         { ok: false, error: "Method not allowed.", build: BUILD, mail: Boolean(env.LEAD_MAIL) },
         405
