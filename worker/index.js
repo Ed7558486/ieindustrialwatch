@@ -11,11 +11,14 @@
  *   -> { ok: false, error }    validation failure
  *   Rent-benchmark requests from the site's call to action. Stored in the same D1
  *   database, in its own table, which is created on first use so no migration is
- *   needed. Nothing is sent from here; Ed works the leads by hand.
+ *   needed, and emailed to Ed through Cloudflare Email Routing as they arrive.
+ *   A failed notification never fails the capture.
  *
  * Addresses are stored in D1. Nothing is sent from here; Ed exports the list
  * and mails from RealNex, which handles unsubscribe and CAN-SPAM.
  */
+
+import { EmailMessage } from "cloudflare:email";
 
 const EMAIL_RE = /^[^\s@,;:<>()[\]\\]+@[^\s@.,;:<>()[\]\\]+\.[^\s@,;:<>()[\]\\]{2,}$/;
 
@@ -96,6 +99,61 @@ const BENCHMARK_TABLE = `CREATE TABLE IF NOT EXISTS benchmark_requests (
   created_at   TEXT NOT NULL
 )`;
 
+// Anything interpolated into a mail header must not be able to inject one.
+function header(v) {
+  return String(v || "").replace(/[\r\n]+/g, " ").trim();
+}
+
+/**
+ * Emails Ed the moment a benchmark request lands, through Cloudflare Email
+ * Routing. Built by hand rather than with mimetext so the Worker keeps zero
+ * npm dependencies; there is no package.json and no build step in this repo.
+ * Never allowed to fail the request: the lead is already in D1 by this point.
+ */
+async function notifyBenchmark(env, lead) {
+  if (!env.LEAD_MAIL) return;
+
+  const bits = [lead.sizeSf && lead.sizeSf + " SF", lead.city, lead.currentRent && "$" + lead.currentRent]
+    .filter(Boolean)
+    .join(", ");
+  const subject = header("Rent benchmark request" + (bits ? ": " + bits : "") + (lead.expiry ? " \u2014 expires " + lead.expiry : ""));
+
+  const body = [
+    "A rent benchmark request came in from ieindustrialwatch.com.",
+    "",
+    "Email:         " + (lead.email || "-"),
+    "Name:          " + (lead.name || "-"),
+    "Building city: " + (lead.city || "-"),
+    "Size:          " + (lead.sizeSf ? lead.sizeSf + " SF" : "-"),
+    "Current rent:  " + (lead.currentRent ? "$" + lead.currentRent + "/SF/mo NNN" : "-"),
+    "Lease expiry:  " + (lead.expiry || "-"),
+    "",
+    "Page:          " + (lead.source || "-"),
+    "Received:      " + new Date().toISOString(),
+    "",
+    "Reply to this message to answer them directly.",
+    "The full record is in the benchmark_requests table of the iewatch-subscribers database.",
+  ].join("\r\n");
+
+  const raw = [
+    "From: IE Industrial Watch <leads@ieindustrialwatch.com>",
+    "To: Ed Smith <esmith@lee-assoc.com>",
+    lead.email ? "Reply-To: " + header(lead.email) : null,
+    "Message-ID: <" + crypto.randomUUID() + "@ieindustrialwatch.com>",
+    "Subject: " + subject,
+    "MIME-Version: 1.0",
+    "Content-Type: text/plain; charset=utf-8",
+    "",
+    body,
+  ]
+    .filter((line) => line !== null)
+    .join("\r\n");
+
+  await env.LEAD_MAIL.send(
+    new EmailMessage("leads@ieindustrialwatch.com", "esmith@lee-assoc.com", raw)
+  );
+}
+
 async function handleBenchmark(request, env) {
   let data;
   const ct = request.headers.get("content-type") || "";
@@ -146,6 +204,13 @@ async function handleBenchmark(request, env) {
     ).bind(email, name, city, sizeSf, currentRent, expiry, meta.ref, meta.ip, meta.country, meta.ua).run();
   } catch (err) {
     return json({ ok: false, error: "Something went wrong saving that. Try again." }, 500);
+  }
+
+  // The lead is saved. A failed notification must not tell the sender otherwise.
+  try {
+    await notifyBenchmark(env, { email, name, city, sizeSf, currentRent, expiry, source: meta.ref });
+  } catch (err) {
+    // swallowed on purpose
   }
 
   return json({ ok: true });

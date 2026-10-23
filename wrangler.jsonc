@@ -14,5 +14,11 @@
       "database_name": "iewatch-subscribers",
       "database_id": "f11b2dd3-acb9-4958-8a17-6e20edad6e0d"
     }
+  ],
+  "send_email": [
+    {
+      "name": "LEAD_MAIL",
+      "destination_address": "esmith@lee-assoc.com"
+    }
   ]
 }
