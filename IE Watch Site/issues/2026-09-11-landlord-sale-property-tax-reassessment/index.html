@@ -121,13 +121,32 @@
         <p class="fineprint">Used to send the Watch and nothing else. Never sold or shared. Ed Smith, CCIM &middot; Lee &amp; Associates &ndash; Ontario &middot; 3535 Inland Empire Blvd, Ontario, CA 91764.</p>
       </form>
     </section>
-    <div class="cta">
-      <div>
-        <div class="t">Renewing in a building that has changed hands?</div>
-        <p>I cover industrial sales, leasing and land across San Bernardino and Riverside Counties. Happy to pull your building's assessed value off the county roll and show you the gap you are carrying.</p>
+    <section class="panel subscribe" id="benchmark">
+      <div class="panel-head">
+        <h2>Renewing in a building that has changed hands?</h2>
+        <span class="note">Free &middot; usually back within a business day</span>
       </div>
-      <a class="btn" href="mailto:esmith@lee-assoc.com?subject=Property%20tax%20reassessment%20and%20our%20lease">Email Ed</a>
-    </div>
+      <p style="font-size:15px;color:var(--ink-2);max-width:64ch">Asking rents are public. What buildings actually signed for is not. Send me your numbers and I will benchmark them against the closed Inland Empire industrial leases of the last twelve months: the rate, the free rent, the term and the escalation comparable tenants are getting. You get the comparison back either way, and there is no cost and nothing owed.</p>
+      <form id="bmForm" novalidate>
+        <div class="fields">
+          <label class="fld"><span>Email</span><input type="email" name="email" required autocomplete="email" placeholder="you@company.com"></label>
+          <label class="fld"><span>Building city</span><input type="text" name="city" placeholder="Ontario"></label>
+          <label class="fld"><span>Size <em>sq ft</em></span><input type="text" name="size_sf" inputmode="numeric" placeholder="150,000"></label>
+        </div>
+        <div class="fields">
+          <label class="fld"><span>Current rent <em>$/SF/mo NNN</em></span><input type="text" name="current_rent" placeholder="1.45"></label>
+          <label class="fld"><span>Lease expiry <em>month and year</em></span><input type="text" name="expiry" placeholder="Oct 2029"></label>
+          <label class="fld"><span>Name <em>optional</em></span><input type="text" name="name" autocomplete="name"></label>
+        </div>
+        <input class="hp" type="text" name="hp" tabindex="-1" autocomplete="off" aria-hidden="true"
+               style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none">
+        <div class="subrow">
+          <button type="submit" class="btn">Send my numbers</button>
+          <span class="submsg" id="bmMsg" role="status" aria-live="polite"></span>
+        </div>
+        <p class="fineprint">Comes to Ed Smith directly, not to a mailing list, and is used to run your comparison and nothing else. Never sold or shared. If you would rather just write: <a href="mailto:esmith@lee-assoc.com?subject=Property%20tax%20reassessment%20and%20our%20lease">esmith@lee-assoc.com</a>.</p>
+      </form>
+    </section>
     <p style="font-size:14px;color:var(--muted)"><a href="/">Current issue</a> · <a href="/archive/">All issues</a></p>
     <footer class="footer">
       <details class="srcbox">
@@ -178,6 +197,47 @@
           f.reset();
           msg.className = 'submsg ok';
           msg.textContent = 'Done. The next issue comes Friday.';
+        } else {
+          msg.className = 'submsg err';
+          msg.textContent = (j && j.error) || 'Something went wrong. Try again.';
+        }
+      })
+      ['catch'](function () {
+        msg.className = 'submsg err';
+        msg.textContent = 'Network error. Try again.';
+      })
+      .then(function () { btn.disabled = false; btn.textContent = label; });
+  });
+})();
+</script>
+<script>
+(function(){
+  var f = document.getElementById('bmForm');
+  if (!f) return;
+  var msg = document.getElementById('bmMsg');
+  var btn = f.querySelector('button[type=submit]');
+  f.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var data = {};
+    new FormData(f).forEach(function (v, k) { data[k] = v; });
+    data.source = location.pathname;
+    msg.className = 'submsg';
+    msg.textContent = '';
+    if (!data.email) { msg.className = 'submsg err'; msg.textContent = 'Enter an email address.'; return; }
+    btn.disabled = true;
+    var label = btn.textContent;
+    btn.textContent = 'Sending';
+    fetch('/api/benchmark', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify(data)
+    })
+      .then(function (r) { return r.json(); })
+      .then(function (j) {
+        if (j && j.ok) {
+          f.reset();
+          msg.className = 'submsg ok';
+          msg.textContent = 'Got it. I will come back to you within a business day.';
         } else {
           msg.className = 'submsg err';
           msg.textContent = (j && j.error) || 'Something went wrong. Try again.';
