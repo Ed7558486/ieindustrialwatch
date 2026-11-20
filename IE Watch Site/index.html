@@ -25,7 +25,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,600;0,6..12,700;1,6..12,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="/styles.css?v=8a833b5d">
+<link rel="stylesheet" href="/styles.css?v=208cdd59">
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebSite", "@id": "https://ieindustrialwatch.com/#website", "url": "https://ieindustrialwatch.com", "name": "Inland Empire Industrial Watch", "publisher": {"@id": "https://ieindustrialwatch.com/about/#ed-smith"}}, {"@type": "RealEstateAgent", "@id": "https://ieindustrialwatch.com/about/#ed-smith", "name": "Ed Smith, CCIM", "jobTitle": "Broker Associate", "image": "https://ieindustrialwatch.com/assets/headshot.jpg", "url": "https://ieindustrialwatch.com/about/", "email": "mailto:esmith@lee-assoc.com", "telephone": "+1-909-373-2730", "worksFor": {"@type": "RealEstateOrganization", "name": "Lee & Associates – Ontario"}, "address": {"@type": "PostalAddress", "streetAddress": "3535 Inland Empire Blvd", "addressLocality": "Ontario", "addressRegion": "CA", "postalCode": "91764", "addressCountry": "US"}, "hasCredential": [{"@type": "EducationalOccupationalCredential", "credentialCategory": "license", "name": "California DRE License #00874955", "recognizedBy": {"@type": "Organization", "name": "California Department of Real Estate"}}, {"@type": "EducationalOccupationalCredential", "credentialCategory": "certification", "name": "Certified Commercial Investment Member (CCIM)"}], "areaServed": [{"@type": "AdministrativeArea", "name": "San Bernardino County, California"}, {"@type": "AdministrativeArea", "name": "Riverside County, California"}, {"@type": "Place", "name": "Inland Empire, California"}], "knowsAbout": ["Industrial real estate", "Warehouse leasing", "Distribution facilities", "Industrial land", "Inland Empire industrial market"]}]}</script>
 </head>
 <body>
@@ -54,7 +54,18 @@
         </div>
       </div>
     </header>
-<section class="lead">
+<section class="substrip" id="subscribe">
+      <span class="t">Get it Friday mornings</span><span class="n">One email a week. Unsubscribe anytime.</span>
+      <form id="subForm" novalidate>
+        <input type="email" name="email" required autocomplete="email" placeholder="you@company.com" aria-label="Email">
+        <input class="hp" type="text" name="hp" tabindex="-1" autocomplete="off" aria-hidden="true"
+               style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none">
+        <button type="submit" class="btn">Subscribe</button>
+        <span class="submsg" id="subMsg" role="status" aria-live="polite"></span>
+      </form>
+    </section>
+<section class="front">
+<div class="col" style="gap:18px"><section class="lead">
       <div class="lead-head">
         <div class="eyebrow" style="color:var(--accent-ink)">This week &middot; Submarket spotlight</div>
         <div class="eyebrow">South Ontario &middot; AB 98 &middot; Casualty &middot; Business income</div>
@@ -67,89 +78,21 @@
       </div>
       <p style="font-size:15px"><a id="lead-continue" href="/issues/2026-11-20-ab-98-fire-rebuild-business-income-gap/">Read the full issue: the 65098.1.5 shield, the CP 15 31 fix, the six asks, and the 300,000 SF worked example</a></p>
       <p style="font-size:15px">Also in this issue: <a href="/issues/2026-11-20-ab-98-fire-rebuild-business-income-gap/#billing">Billing error of the week, pro rata share on stale square footage</a></p>
-        </section><section class="board" aria-label="Key indicators">
-      <div class="sig">
-        <div class="eyebrow">San Pedro Bay · October</div>
-        <div class="val">1.96<span class="u"> M TEU</span></div>
-        <div class="delta up">+16.4% YoY</div>
-        <div class="cap">POLA 1,026,872 + POLB 937,715</div>
-      </div>
-      <div class="sig">
-        <div class="eyebrow">Loaded imports · October</div>
-        <div class="val">1.00<span class="u"> M TEU</span></div>
-        <div class="delta up">+20.4% combined</div>
-        <div class="cap">POLA 538,620 + POLB 461,909 loaded inbound</div>
-      </div>
-      <div class="sig">
-        <div class="eyebrow">IE availability</div>
-        <div class="val">12.60%</div>
-        <div class="delta flat">&minus;0.10 pts vs September</div>
-        <div class="cap">88.34M SF available of 701.2M SF</div>
-      </div>
-      <div class="sig">
-        <div class="eyebrow">IE net absorption · YTD</div>
-        <div class="val">2.16<span class="u"> M SF</span></div>
-        <div class="delta down">&minus;1.57M vs September</div>
-        <div class="cap">West +2.18M, East &minus;0.02M</div>
-      </div>
-      <div class="sig">
-        <div class="eyebrow">Under construction</div>
-        <div class="val">9.42<span class="u"> M SF</span></div>
-        <div class="delta flat">+0.15M vs September</div>
-        <div class="cap">West 6.38M, East 3.04M · 1.82M SF delivered YTD</div>
-      </div>
-    </section><section class="cols two">
-      <div class="panel">
-        <div class="panel-head">
-          <h2>Container volume, San Pedro Bay</h2>
-          <span class="note">Monthly TEUs, both ports · Jul 2024 – Oct 2026</span>
-        </div>
+        </section><div class="col">
+        <h2>Container volume, San Pedro Bay <span class="note">Monthly TEUs, both ports · Jul 2024 – Oct 2026</span></h2>
         <div class="chart-shell"><svg id="teuChart" viewBox="0 0 720 300" role="img" aria-label="Monthly combined container volume through the Ports of Los Angeles and Long Beach, July 2024 through October 2026, ranging from about 1.36 million to 2.04 million TEUs"></svg></div>
         <div class="legend">
           <span><i class="swatch" style="background:var(--bar)"></i> Monthly combined TEUs</span>
           <span><i class="swatch" style="background:var(--bar-hi)"></i> October 2026 (latest, preliminary)</span>
         </div>
-        <div class="split">
-          <div class="t">Long Beach posted October, and the two ports close the ten months 4.9% ahead of 2025</div>
+        <details class="fold"><summary>Long Beach posted October, and the two ports close the ten months 4.9% ahead of 2025</summary>
           <p>Long Beach posted October on November 20, so both ports now run through the month. Combined October volume was 1,964,587 TEUs, 16.4% above October 2025 and 3.7% below September&rsquo;s 2,039,829, which stays the two-year high. Long Beach moved 937,715 TEUs against 839,671 a year earlier, loaded inbound up 14.9% to 461,909. Los Angeles added 1,026,872 with 538,620 loaded imports, up 25.5%. Calendar year to date the two ports are at 17,721,466 TEUs, 4.9% ahead of 2025. September still reads as one strong month inside a modest year rather than a step up in demand.</p>
-        </div>
-      </div>
-
-      <div class="panel">
-        <div class="panel-head">
-          <h2>West vs. East</h2>
-          <span class="note">October 2026 &middot; Q3 asking rates</span>
-        </div>
-        <div class="table-scroll">
-          <table>
-            <thead><tr><th>Metric</th><th class="num">IE West</th><th class="num">IE East</th></tr></thead>
-            <tbody>
-              <tr><td>Base inventory</td><td class="num">375.1M SF</td><td class="num">326.1M SF</td></tr>
-              <tr><td>Availability</td><td class="num">12.16%</td><td class="num">13.10%</td></tr>
-              <tr><td>Vacancy</td><td class="num">5.28%</td><td class="num">6.56%</td></tr>
-              <tr><td>Net absorption YTD</td><td class="num">+2,183,734</td><td class="num">−20,513</td></tr>
-              <tr><td>Gross activity YTD</td><td class="num">47.4M SF</td><td class="num">42.3M SF</td></tr>
-              <tr><td>Transactions</td><td class="num">523</td><td class="num">320</td></tr>
-              <tr><td>Under construction</td><td class="num">6.38M SF</td><td class="num">3.04M SF</td></tr>
-              <tr><td>Avg NNN, 100K+ (Q3)</td><td class="num">$1.034</td><td class="num">$0.915</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="split">
-          <div class="t">October reversed West and steadied East</div>
-          <p>West&rsquo;s reported YTD absorption fell from 3.94M SF to 2.18M, which puts October itself at about negative 1.75M SF, and vacancy rose with it, 4.82% to 5.28%, while availability edged up to 12.16%. East went the other way: the YTD deficit narrowed from 209,172 SF to 20,513, an October of roughly positive 189,000, and availability dropped to 13.10%, though vacancy ticked up to 6.56%. Gross activity kept building on both sides, 47.4M SF across 523 transactions in West against 42.3M across 320 in East, so the average East deal is about 132,000 SF to West&rsquo;s 91,000. Construction diverged: West rose to 6.38M SF across 16 projects while East fell to 3.04M across 11. Q3 asking is unchanged, West $1.034 and East $0.915, a 13% premium. The October absorption figures are the difference between two consecutive Lee YTD prints rather than a separately published monthly number.</p>
-        </div>
-        <div class="split">
-          <div class="t">The renewal discount is gone: new deals clear five cents lower with two more months free</div>
-          <p>Lee Ontario&rsquo;s comp export, pulled November 19 and covering January 1 through November 18, carries 676 closed Inland Empire industrial leases: 521 new, 144 renewals, 11 expansions. At 100,000 SF and above on an NNN rate, 80 new leases clear at a median $0.95 on a 66-month term with six months free; 54 renewals clear at $1.00 on 63.5 months with four months free. Both still carry a 3.5% median escalation. Run the medians out and the renewal costs about 8.5% more in effective rent, $0.94/SF/mo against $0.86, because it pays five cents more on the face and gives up two months of abatement over a term two and a half months shorter. On 300,000 SF that spread is roughly $264,000 a year. Three more weeks of closings barely moved it: 27 new leases and the gap narrowed by a tenth of a point. These are medians across different buildings and submarkets rather than a matched pair, so treat the gap as a reason to price the alternative, not as a quote. Unearned abatement is also the first thing a successor owner can decline to honor.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="panel subscribe" id="benchmark">
+        </details>
+      </div></div>
+<aside class="rail"><div class="ind" aria-label="Key indicators"><div class="eyebrow" style="padding:8px 0 2px;color:var(--accent-ink)">Key indicators</div><div class="row"><div class="eyebrow">San Pedro Bay · October</div><div class="val">1.96<span class="u"> M TEU</span></div><div class="delta up">+16.4% YoY</div><div class="cap">POLA 1,026,872 + POLB 937,715</div></div><div class="row"><div class="eyebrow">Loaded imports · October</div><div class="val">1.00<span class="u"> M TEU</span></div><div class="delta up">+20.4% combined</div><div class="cap">POLA 538,620 + POLB 461,909 loaded inbound</div></div><div class="row"><div class="eyebrow">IE availability</div><div class="val">12.60%</div><div class="delta flat">&minus;0.10 pts vs September</div><div class="cap">88.34M SF available of 701.2M SF</div></div><div class="row"><div class="eyebrow">IE net absorption · YTD</div><div class="val">2.16<span class="u"> M SF</span></div><div class="delta down">&minus;1.57M vs September</div><div class="cap">West +2.18M, East &minus;0.02M</div></div><div class="row"><div class="eyebrow">Under construction</div><div class="val">9.42<span class="u"> M SF</span></div><div class="delta flat">+0.15M vs September</div><div class="cap">West 6.38M, East 3.04M · 1.82M SF delivered YTD</div></div></div><section class="panel subscribe" id="benchmark">
       <div class="panel-head">
         <h2>Where does your rent actually sit?</h2>
-        <span class="note">Free &middot; usually back within a business day</span>
+        
       </div>
       <p style="font-size:15px;color:var(--ink-2);max-width:64ch">Asking rents are public. What buildings actually signed for is not. Send me your numbers and I will benchmark them against the closed Inland Empire industrial leases of the last twelve months: the rate, the free rent, the term and the escalation comparable tenants are getting. You get the comparison back either way, and there is no cost and nothing owed.</p>
       <p style="font-size:15px;color:var(--ink-2);max-width:64ch">Already in a lease? Email me last year's CAM reconciliation and the lease, and I'll check one against the other, also free. <a href="mailto:esmith@lee-assoc.com?subject=CAM%20check">esmith@lee-assoc.com</a></p>
@@ -172,81 +115,33 @@
         </div>
         <p class="fineprint">Comes to Ed Smith directly, not to a mailing list, and is used to run your comparison and nothing else. Never sold or shared. If you would rather just write: <a href="mailto:esmith@lee-assoc.com?subject=Rent%20benchmark">esmith@lee-assoc.com</a>.</p>
       </form>
-    </section>
-
-    <!-- ===================== REGULATORY ===================== -->
-    <section class="panel">
-      <div class="panel-head">
-        <h2>Regulatory and tax load on IE industrial tenants</h2>
-        <span class="note">In force · phasing · watch</span>
-      </div>
-
-      <div class="reg-row">
-        <div><h3>AB 98 / SB 415 warehouse standards</h3><div class="who">State · Warehouse Concentration Region</div></div>
-        <div><span class="chip phasing">Phasing in</span></div>
-        <div class="impact">Statewide siting, buffer, loading-bay and truck-route rules for logistics development. Access requirements began Jan 1, 2026, and so did the deadline for Warehouse Concentration Region cities to adopt truck routes. Eight of the 14 jurisdictions missed it, Moreno Valley, Perris and Riverside County among them, and the Attorney General sent them an enforcement advisory on October 5, 2026. Penalties run up to $50,000 every six months and fall on the cities, so the maps are being redrawn now, mid-term. Enhanced standards near sensitive receptors trigger on zone changes or buildings over 250,000 SF. <strong>For tenants:</strong> it constrains new modern supply near labor and rooftops, an addition to a building you already occupy can pull the whole development into the standards, and a route re-designation lengthens your haul to the freeway at your cost. <a href="/issues/2026-10-09-ab-98-expansion-option-20-percent-trigger/">Issue 06</a> runs the 20% test on an expansion option. <a href="/issues/2026-10-16-moreno-valley-truck-route-map-lease/">Issue 07</a> costs Moreno Valley&rsquo;s proposed map at about $294,000 a year on a 300,000 SF building.</div>
-      </div>
-
-      <div class="reg-row">
-        <div><h3>South Coast AQMD Rule 2305 (WAIRE)</h3><div class="who">Regional · Warehouses over 100,000 SF</div></div>
-        <div><span class="chip live">In force</span></div>
-        <div class="impact">All three size phases are in annual reporting. Points are earned through zero- and near-emission equipment, chargers, or clean truck visits, or bought out at $1,000 per point plus 6.25% admin. <strong>For tenants:</strong> a recurring occupancy cost that belongs in the lease. <a href="/issues/2026-09-05-waire-rule-2305-warehouse-cost/">Issue 01</a> costs it out at $0.40/SF for a 300,000 SF operator.</div>
-      </div>
-
-      <div class="reg-row">
-        <div><h3>Tariff regime after the IEEPA ruling</h3><div class="who">Federal · Importers and 3PLs</div></div>
-        <div><span class="chip live">In force</span></div>
-        <div class="impact">The Supreme Court struck down the IEEPA tariffs on Feb 20, 2026, leaving $166–179B in duties in refund litigation. The 10% Section 122 stopgap expired July 24 and was replaced the same day by Section 301 forced-labor tariffs on 60 economies — roughly 10% for the EU, Taiwan, Mexico, Canada and India; 12.5% for Japan, Korea, Vietnam, Thailand and Brazil; about 37.5% all-in for China. Section 232 metals stay at 50%. The extension went through. USTR finalized it on November 9 and the notices were published on November 10, carrying the suspension of its Section 301 maritime measures &mdash; the per-vessel fees under Annexes I, II and III of the April 2025 notice, and the duties on Chinese-origin ship-to-shore cranes and cargo-handling equipment under the October 2025 notice &mdash; through January 9, 2027, with the tariff headings dated January 10. The 178 Section 301 product exclusions in the technology-transfer investigation were extended on the same timetable. So nothing lapsed on November 10, and the date to watch moves to early January. Separately, the October 28 Section 232 proclamation on robotics and industrial machinery found a threatened impairment but imposed no duty, directing Commerce and USTR to negotiate agreements and report within 180 days. <strong>For tenants:</strong> landed-cost volatility drives inventory strategy, which drives square footage. The November 10 lapse did not happen, so the per-vessel fees and crane duties that would have followed are deferred rather than cancelled; if you are pricing freight or equipment into the first quarter, price them back in for January. The robotics decision leaves imported automation and materials-handling equipment un-tariffed for now, so an automation capex case does not need a duty contingency this quarter, but 180 days is the horizon on it. Importers sitting on refund claims may have balance-sheet capacity that does not show in current credit.</div>
-      </div>
-
-      <div class="reg-row">
-        <div><h3>Cap-and-invest tightening</h3><div class="who">State · Energy and fuel costs</div></div>
-        <div><span class="chip live">In force</span></div>
-        <div class="impact">The tightened cap took effect September 1. CARB pulled 118 million allowances from the 2027&ndash;2030 budgets, roughly an 11% cut to the cap through the end of the decade and about 7% a year to 2045, alongside a $4B manufacturing decarbonization fund. The August 2026 auction settled at $32.48 for current vintage allowances, up 12.7% from $28.81 in May. CARB&rsquo;s own modeling of the amended program projects a weighted-average allowance price near $68 against a $44 baseline. The 49th California&ndash;Qu&eacute;bec joint auction was held November 18. CARB had not posted its summary results as of November 20 and they normally follow about a week after the sale, so the August 19 auction, number 48, is still the most recent settlement on the record. California, Qu&eacute;bec and Washington signed a linkage agreement on June 25 for joint auctions, expected to start between late 2027 and early 2028. <strong>For tenants:</strong> allowance prices feed electricity and diesel costs, and a NNN utility clause that does not distinguish a regulatory surcharge from a rate increase passes the whole move through. A doubling from here is the regulator&rsquo;s own central case, not a bear case. Check the clause before modeling a 10-year occupancy pro forma.</div>
-      </div>
-
-      <div class="reg-row">
-        <div><h3>Perris Measure C warehouse tax</h3><div class="who">Municipal &middot; Perris operators over 50,000 SF</div></div>
-        <div><span class="chip watch">Watch</span></div>
-        <div class="impact">Perris voters approved a general business license tax of up to $0.10/SF a year on non-e-commerce warehouse, industrial and manufacturing operators over 50,000 SF with large truck activity, rising up to 3% a year. The county&rsquo;s semi-final report stamped November 4 put it at 79.50%; its unofficial portal, updated November 12, now has it at 81.67%, 11,025 votes to 2,475. Neither is certified. The city describes the tax as paid by operators and not as a property tax, and it has not published the ordinance, the start date or the first bill date. <strong>For tenants:</strong> on the city&rsquo;s description the bill lands on the occupier, outside the Real Property Taxes paragraph you negotiated, so a tight tax clause does nothing about it. Whether you owe turns on whether the building is principally used to ship online orders to end consumers, a question a customer shift, a subtenant or an assignee can move while the lease stays the same. <a href="/issues/2026-11-06-perris-measure-c-warehouse-tax-lease/">Issue 10</a> costs it at $30,000 a year on 300,000 SF and gives the carve-out language.</div>
-      </div>
-
-      <div class="reg-row">
-        <div><h3>Local moratoria and mitigation fees</h3><div class="who">Municipal · Entitlement risk</div></div>
-        <div><span class="chip watch">Watch</span></div>
-        <div class="impact">Redlands is furthest along. Its Planning Commission recommended Ordinance Text Amendment No. 372 on May 12 by 5&ndash;1, and on October 6 the City Council introduced Ordinance No. 3002 on a 5&ndash;0 vote, prohibiting new warehouses of 50,000 SF or more, or with more than five truck docks, in every zoning district. The council struck the provision that would have let existing warehouses add truck docks. An existing building may still request height up to its zoning maximum, generally 50 feet, by conditional use permit and with an energy audit showing an efficiency gain; the earlier 15% height cap and the economic-feasibility study requirement are gone. The ordinance returns for final adoption at a later meeting, with no date set, and nothing on it was reported out of the November 18 council meeting. The city filed a CEQA Notice of Exemption on October 27, SCH 2026100992, which puts two things on the record the earlier drafts did not make plain: the ordinance also prohibits assembling parcels to construct or expand any warehouse or logistics use, and it adds a new Section 18.156.970 governing how an existing warehouse may be rebuilt, repaired and maintained. The notice does not publish that section&rsquo;s text; the drafts that preceded it limited a rebuild to the existing square footage and height. Beaumont, Moreno Valley and Fontana have each rejected recent industrial proposals, and Moreno Valley is negotiating an air-quality abatement fee with the Attorney General&rsquo;s Office. Moreno Valley also has two drafts in play: PEN26-0058, which strips through-truck status from segments of nine streets, and PEN26-0055, which would require an approved Truck Routing Plan before the city issues a business license to any new tenant of a logistics facility. <strong>For tenants:</strong> in Redlands the dock-addition path is now closed outright rather than discretionary, so an expansion that depends on new docks in that city fails on the current draft regardless of what the lease says. Elsewhere, an expansion option stops being a right and becomes a discretionary approval with environmental review attached. If your growth plan depends on adding docks or cube to the building you are in, confirm the city will still permit it before you commit to the term. In Redlands a rebuild after a casualty will also be governed by that new section rather than by the zoning you signed under, so ask what it says before you take a long term there.</div>
-      </div>
-    </section>
-
-    <!-- ===================== MACRO + PORT CONTEXT ===================== -->
-    <section class="cols two">
-      <div class="panel">
-        <div class="panel-head">
-          <h2>Macro backdrop</h2>
-          <span class="note">Q3 2026 actuals and current bank forecasts</span>
+    </section></aside>
+</section>
+<section class="cols3"><div class="col">
+        <h2>West vs. East <span class="note">October 2026 &middot; Q3 asking rates</span></h2>
+        <div class="table-scroll">
+          <table>
+            <thead><tr><th>Metric</th><th class="num">IE West</th><th class="num">IE East</th></tr></thead>
+            <tbody>
+              <tr><td>Base inventory</td><td class="num">375.1M SF</td><td class="num">326.1M SF</td></tr>
+              <tr><td>Availability</td><td class="num">12.16%</td><td class="num">13.10%</td></tr>
+              <tr><td>Vacancy</td><td class="num">5.28%</td><td class="num">6.56%</td></tr>
+              <tr><td>Net absorption YTD</td><td class="num">+2,183,734</td><td class="num">−20,513</td></tr>
+              <tr><td>Gross activity YTD</td><td class="num">47.4M SF</td><td class="num">42.3M SF</td></tr>
+              <tr><td>Transactions</td><td class="num">523</td><td class="num">320</td></tr>
+              <tr><td>Under construction</td><td class="num">6.38M SF</td><td class="num">3.04M SF</td></tr>
+              <tr><td>Avg NNN, 100K+ (Q3)</td><td class="num">$1.034</td><td class="num">$0.915</td></tr>
+            </tbody>
+          </table>
         </div>
-        <ul class="tight">
-          <li><strong>The Fed held at 3.75%&ndash;4.00% on October 28</strong>, a 10&ndash;2 vote with Lisa Cook and Beth Hammack both preferring another quarter point. Inflation &ldquo;remains elevated&rdquo; in the statement&rsquo;s own words; job gains are described as keeping pace with the workforce and activity as expanding at a strong pace. Two dissents for a hike and none for a cut puts the risk on the next move being up, not down.</li>
-          <li><strong>The Fed raised rates on September 16</strong>, moving the target range to 3.75%&ndash;4.00% on a unanimous 12&ndash;0 vote. The statement says inflation &ldquo;remains elevated&rdquo; and frames the increase as support for &ldquo;a timelier return&rdquo; to the 2% goal.</li>
-          <li><strong>Wells Fargo called it.</strong> It moved in August to forecast a hike before year-end, citing tariffs, elevated oil and AI data-center power demand. Bank of America had core PCE easing to 2.8% by Q4, a path that implied cuts. September settled the argument in Wells Fargo&rsquo;s favor, and the day after the hike Wells Fargo put the funds rate at 4.00%&ndash;4.25% by year-end with no changes through 2027, on the reasoning that the excess inflation is supply-driven and the labor market is not overheating. After the October hold that year-end call needs a December move to land, and Lee&rsquo;s Q3 economic report has a majority of Fed officials signalling exactly that for the December 9 meeting, the last of the year.</li>
-          <li><strong>GDP grew 3.4% in Q3</strong>, faster than expected, on a surge in AI-related business investment and an upturn in government spending, partly offset by a downturn in exports. Sales to private domestic purchasers rose 4.9% against 4.6% in Q2, and consumer spending held at 3.8%. Lee&rsquo;s economists put the second quarter at 2.2%; the 1.5% figure reported here previously was the earlier advance estimate.</li>
-          <li><strong>Inflation is still why.</strong> Prices rose 3.5% year over year in Q3. The monthly measure ticked up 0.5% in September to 3.6%, the largest monthly gain since March and up from 2.7% for 2025, with energy goods and services jumping 5.4% in September as the Iran conflict kept fuel costs elevated. Households are covering it out of savings: Americans saved 4.1% of income in Q3, the least in almost four years.</li>
-          <li><strong>Labor is steady rather than strong.</strong> National unemployment was 4.2% in September with 7.1 million out of work, inside the 4.1%&ndash;4.3% band it has held since March. Layoffs are at a four-year low, 573,195 announced cuts through September and nearly 40% below the first nine months of 2025, but hiring is slow: September payrolls added 29,000 against a 45,000 twelve-month average, and average hourly earnings of $37.81 are up 3% over the year. Locally the picture is softer: Inland Empire unemployment is 5.5% and the labor force shrank 1.0% over twelve months.</li>
-          <li><strong>AI construction is bidding for the same trades.</strong> Goldman Sachs projects U.S. AI investment reaching 1.9% of GDP, and Columbia&rsquo;s Stijn van Nieuwerburgh puts data-center and infrastructure spending above $10 trillion through 2032, averaging 3.6% of GDP a year. Lee&rsquo;s economists note the server-farm build-out is adding construction jobs while driving up materials and labor costs. That is a floor under the cost of new industrial development and under any tenant improvement allowance priced for 2027 delivery.</li>
-          <li><strong>CoStar&rsquo;s September 24 read on the Inland Empire</strong> puts vacancy at 8.7% for 2026 Q3 and availability at 12.5%, a 15-year high, against a 6.2% historical average vacancy. Trailing 12-month net absorption is 6.0M SF versus a prior 10-year average of 17.5M SF, deliveries 7.7M SF, and market asking rent growth &minus;0.9%. Construction underway is 14.0M SF, down from the 45.7M SF peak in 2022, with less than 10M SF forecast for completion across 2026 and 2027.</li>
-        <li><strong>CoStar&rsquo;s October 30 national forecast</strong> holds industrial vacancy at its Q3 2026 level of 7.3% through 2027, easing only in 2028, a modest improvement on its prior view. Demand outruns new supply through the rest of 2026, then 2027 net absorption moderates to about 204M SF against roughly 243M SF of completions. CoStar warns that sustained speculative building would prolong elevated vacancy, and names mid-sized logistics product as the exposure. Not every house reads it that way: JLL&rsquo;s Q3 figures have national vacancy falling rather than flat. The disagreement is directional, not a rounding difference, and the supply pipeline is what separates them.</li>
-        </ul>
-        <div class="split">
-          <div class="t">What a hike does to the renewal question</div>
-          <p>Relocation is capital. Racking, conveyor, dock equipment, moving the operation, the months of duplicate rent: most of it gets financed, and financing just got more expensive rather than less. That strengthens the case for negotiating hard where you already sit and weakens the cheap-capital case for moving. For owners it cuts the other way on a 2027 refinance, which is the same pressure that makes a landlord willing to trade on rent to keep a covenant in place.</p>
-        </div>
-      </div>
-
-      <div class="panel">
-        <div class="panel-head">
-          <h2>Port volumes in context</h2>
-          <span class="note">Calendar year</span>
-        </div>
+        <details class="fold"><summary>October reversed West and steadied East</summary>
+          <p>West&rsquo;s reported YTD absorption fell from 3.94M SF to 2.18M, which puts October itself at about negative 1.75M SF, and vacancy rose with it, 4.82% to 5.28%, while availability edged up to 12.16%. East went the other way: the YTD deficit narrowed from 209,172 SF to 20,513, an October of roughly positive 189,000, and availability dropped to 13.10%, though vacancy ticked up to 6.56%. Gross activity kept building on both sides, 47.4M SF across 523 transactions in West against 42.3M across 320 in East, so the average East deal is about 132,000 SF to West&rsquo;s 91,000. Construction diverged: West rose to 6.38M SF across 16 projects while East fell to 3.04M across 11. Q3 asking is unchanged, West $1.034 and East $0.915, a 13% premium. The October absorption figures are the difference between two consecutive Lee YTD prints rather than a separately published monthly number.</p>
+        </details>
+        <details class="fold"><summary>The renewal discount is gone: new deals clear five cents lower with two more months free</summary>
+          <p>Lee Ontario&rsquo;s comp export, pulled November 19 and covering January 1 through November 18, carries 676 closed Inland Empire industrial leases: 521 new, 144 renewals, 11 expansions. At 100,000 SF and above on an NNN rate, 80 new leases clear at a median $0.95 on a 66-month term with six months free; 54 renewals clear at $1.00 on 63.5 months with four months free. Both still carry a 3.5% median escalation. Run the medians out and the renewal costs about 8.5% more in effective rent, $0.94/SF/mo against $0.86, because it pays five cents more on the face and gives up two months of abatement over a term two and a half months shorter. On 300,000 SF that spread is roughly $264,000 a year. Three more weeks of closings barely moved it: 27 new leases and the gap narrowed by a tenth of a point. These are medians across different buildings and submarkets rather than a matched pair, so treat the gap as a reason to price the alternative, not as a quote. Unearned abatement is also the first thing a successor owner can decline to honor.</p>
+        </details>
+      </div><div class="col">
+        <h2>Port volumes in context <span class="note">Calendar year</span></h2>
         <div class="table-scroll">
           <table>
             <thead><tr><th>Period</th><th class="num">POLA</th><th class="num">POLB</th><th class="num">Combined</th></tr></thead>
@@ -261,15 +156,28 @@
         </div>
         <p style="font-size:12.5px;color:var(--muted)">*Long Beach's 2024 was a then-record 9.6M TEUs, up 20.3% on 2023. 2025 broke that record again.</p>
         <p style="font-size:12.5px;color:var(--muted)">Both ports now run through October in the table above and the chart. Long Beach posted October on November 20: 937,715 TEUs, loaded inbound 461,909, up 14.9% on October 2025, taking its calendar year to 8,612,969 and 4.7% ahead of 2025. Los Angeles posted October on November 13 at 1,026,872 TEUs with 538,620 loaded imports. Both ports publish a month around the 15th of the following month, so November lands in mid-December.</p>
-        <div class="split">
-          <div class="t">Why it matters here</div>
+        <details class="fold"><summary>Why it matters here</summary>
           <p>Loaded imports, not total TEUs, are what convert into pallet positions in Fontana and Perris. Empties are roughly 38% of the combined count, and repositioning them tells you nothing about occupancy demand.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===================== ROTATION ===================== -->
-    <section style="display:flex;flex-direction:column;gap:12px">
+        </details>
+      </div><div class="col"><h2>Regulatory and tax load <span class="note">Tap a row for detail</span></h2><details class="reg"><summary><div><h3>AB 98 / SB 415 warehouse standards</h3><div class="who">State · Warehouse Concentration Region</div></div><span class="chip phasing">Phasing in</span></summary><div class="impact">Statewide siting, buffer, loading-bay and truck-route rules for logistics development. Access requirements began Jan 1, 2026, and so did the deadline for Warehouse Concentration Region cities to adopt truck routes. Eight of the 14 jurisdictions missed it, Moreno Valley, Perris and Riverside County among them, and the Attorney General sent them an enforcement advisory on October 5, 2026. Penalties run up to $50,000 every six months and fall on the cities, so the maps are being redrawn now, mid-term. Enhanced standards near sensitive receptors trigger on zone changes or buildings over 250,000 SF. <strong>For tenants:</strong> it constrains new modern supply near labor and rooftops, an addition to a building you already occupy can pull the whole development into the standards, and a route re-designation lengthens your haul to the freeway at your cost. <a href="/issues/2026-10-09-ab-98-expansion-option-20-percent-trigger/">Issue 06</a> runs the 20% test on an expansion option. <a href="/issues/2026-10-16-moreno-valley-truck-route-map-lease/">Issue 07</a> costs Moreno Valley&rsquo;s proposed map at about $294,000 a year on a 300,000 SF building.</div></details><details class="reg"><summary><div><h3>South Coast AQMD Rule 2305 (WAIRE)</h3><div class="who">Regional · Warehouses over 100,000 SF</div></div><span class="chip live">In force</span></summary><div class="impact">All three size phases are in annual reporting. Points are earned through zero- and near-emission equipment, chargers, or clean truck visits, or bought out at $1,000 per point plus 6.25% admin. <strong>For tenants:</strong> a recurring occupancy cost that belongs in the lease. <a href="/issues/2026-09-05-waire-rule-2305-warehouse-cost/">Issue 01</a> costs it out at $0.40/SF for a 300,000 SF operator.</div></details><details class="reg"><summary><div><h3>Tariff regime after the IEEPA ruling</h3><div class="who">Federal · Importers and 3PLs</div></div><span class="chip live">In force</span></summary><div class="impact">The Supreme Court struck down the IEEPA tariffs on Feb 20, 2026, leaving $166–179B in duties in refund litigation. The 10% Section 122 stopgap expired July 24 and was replaced the same day by Section 301 forced-labor tariffs on 60 economies — roughly 10% for the EU, Taiwan, Mexico, Canada and India; 12.5% for Japan, Korea, Vietnam, Thailand and Brazil; about 37.5% all-in for China. Section 232 metals stay at 50%. The extension went through. USTR finalized it on November 9 and the notices were published on November 10, carrying the suspension of its Section 301 maritime measures &mdash; the per-vessel fees under Annexes I, II and III of the April 2025 notice, and the duties on Chinese-origin ship-to-shore cranes and cargo-handling equipment under the October 2025 notice &mdash; through January 9, 2027, with the tariff headings dated January 10. The 178 Section 301 product exclusions in the technology-transfer investigation were extended on the same timetable. So nothing lapsed on November 10, and the date to watch moves to early January. Separately, the October 28 Section 232 proclamation on robotics and industrial machinery found a threatened impairment but imposed no duty, directing Commerce and USTR to negotiate agreements and report within 180 days. <strong>For tenants:</strong> landed-cost volatility drives inventory strategy, which drives square footage. The November 10 lapse did not happen, so the per-vessel fees and crane duties that would have followed are deferred rather than cancelled; if you are pricing freight or equipment into the first quarter, price them back in for January. The robotics decision leaves imported automation and materials-handling equipment un-tariffed for now, so an automation capex case does not need a duty contingency this quarter, but 180 days is the horizon on it. Importers sitting on refund claims may have balance-sheet capacity that does not show in current credit.</div></details><details class="reg"><summary><div><h3>Cap-and-invest tightening</h3><div class="who">State · Energy and fuel costs</div></div><span class="chip live">In force</span></summary><div class="impact">The tightened cap took effect September 1. CARB pulled 118 million allowances from the 2027&ndash;2030 budgets, roughly an 11% cut to the cap through the end of the decade and about 7% a year to 2045, alongside a $4B manufacturing decarbonization fund. The August 2026 auction settled at $32.48 for current vintage allowances, up 12.7% from $28.81 in May. CARB&rsquo;s own modeling of the amended program projects a weighted-average allowance price near $68 against a $44 baseline. The 49th California&ndash;Qu&eacute;bec joint auction was held November 18. CARB had not posted its summary results as of November 20 and they normally follow about a week after the sale, so the August 19 auction, number 48, is still the most recent settlement on the record. California, Qu&eacute;bec and Washington signed a linkage agreement on June 25 for joint auctions, expected to start between late 2027 and early 2028. <strong>For tenants:</strong> allowance prices feed electricity and diesel costs, and a NNN utility clause that does not distinguish a regulatory surcharge from a rate increase passes the whole move through. A doubling from here is the regulator&rsquo;s own central case, not a bear case. Check the clause before modeling a 10-year occupancy pro forma.</div></details><details class="reg"><summary><div><h3>Perris Measure C warehouse tax</h3><div class="who">Municipal &middot; Perris operators over 50,000 SF</div></div><span class="chip watch">Watch</span></summary><div class="impact">Perris voters approved a general business license tax of up to $0.10/SF a year on non-e-commerce warehouse, industrial and manufacturing operators over 50,000 SF with large truck activity, rising up to 3% a year. The county&rsquo;s semi-final report stamped November 4 put it at 79.50%; its unofficial portal, updated November 12, now has it at 81.67%, 11,025 votes to 2,475. Neither is certified. The city describes the tax as paid by operators and not as a property tax, and it has not published the ordinance, the start date or the first bill date. <strong>For tenants:</strong> on the city&rsquo;s description the bill lands on the occupier, outside the Real Property Taxes paragraph you negotiated, so a tight tax clause does nothing about it. Whether you owe turns on whether the building is principally used to ship online orders to end consumers, a question a customer shift, a subtenant or an assignee can move while the lease stays the same. <a href="/issues/2026-11-06-perris-measure-c-warehouse-tax-lease/">Issue 10</a> costs it at $30,000 a year on 300,000 SF and gives the carve-out language.</div></details><details class="reg"><summary><div><h3>Local moratoria and mitigation fees</h3><div class="who">Municipal · Entitlement risk</div></div><span class="chip watch">Watch</span></summary><div class="impact">Redlands is furthest along. Its Planning Commission recommended Ordinance Text Amendment No. 372 on May 12 by 5&ndash;1, and on October 6 the City Council introduced Ordinance No. 3002 on a 5&ndash;0 vote, prohibiting new warehouses of 50,000 SF or more, or with more than five truck docks, in every zoning district. The council struck the provision that would have let existing warehouses add truck docks. An existing building may still request height up to its zoning maximum, generally 50 feet, by conditional use permit and with an energy audit showing an efficiency gain; the earlier 15% height cap and the economic-feasibility study requirement are gone. The ordinance returns for final adoption at a later meeting, with no date set, and nothing on it was reported out of the November 18 council meeting. The city filed a CEQA Notice of Exemption on October 27, SCH 2026100992, which puts two things on the record the earlier drafts did not make plain: the ordinance also prohibits assembling parcels to construct or expand any warehouse or logistics use, and it adds a new Section 18.156.970 governing how an existing warehouse may be rebuilt, repaired and maintained. The notice does not publish that section&rsquo;s text; the drafts that preceded it limited a rebuild to the existing square footage and height. Beaumont, Moreno Valley and Fontana have each rejected recent industrial proposals, and Moreno Valley is negotiating an air-quality abatement fee with the Attorney General&rsquo;s Office. Moreno Valley also has two drafts in play: PEN26-0058, which strips through-truck status from segments of nine streets, and PEN26-0055, which would require an approved Truck Routing Plan before the city issues a business license to any new tenant of a logistics facility. <strong>For tenants:</strong> in Redlands the dock-addition path is now closed outright rather than discretionary, so an expansion that depends on new docks in that city fails on the current draft regardless of what the lease says. Elsewhere, an expansion option stops being a right and becomes a discretionary approval with environmental review attached. If your growth plan depends on adding docks or cube to the building you are in, confirm the city will still permit it before you commit to the term. In Redlands a rebuild after a casualty will also be governed by that new section rather than by the zoning you signed under, so ask what it says before you take a long term there.</div></details></div></section>
+<section><div class="col">
+        <h2>Macro backdrop <span class="note">Q3 2026 actuals and current bank forecasts</span></h2>
+        <ul class="tight fold-list cols-list">
+          <li><details><summary><strong>The Fed held at 3.75%&ndash;4.00% on October 28</strong></summary>, a 10&ndash;2 vote with Lisa Cook and Beth Hammack both preferring another quarter point. Inflation &ldquo;remains elevated&rdquo; in the statement&rsquo;s own words; job gains are described as keeping pace with the workforce and activity as expanding at a strong pace. Two dissents for a hike and none for a cut puts the risk on the next move being up, not down.</details></li>
+          <li><details><summary><strong>The Fed raised rates on September 16</strong></summary>, moving the target range to 3.75%&ndash;4.00% on a unanimous 12&ndash;0 vote. The statement says inflation &ldquo;remains elevated&rdquo; and frames the increase as support for &ldquo;a timelier return&rdquo; to the 2% goal.</details></li>
+          <li><details><summary><strong>Wells Fargo called it.</strong></summary> It moved in August to forecast a hike before year-end, citing tariffs, elevated oil and AI data-center power demand. Bank of America had core PCE easing to 2.8% by Q4, a path that implied cuts. September settled the argument in Wells Fargo&rsquo;s favor, and the day after the hike Wells Fargo put the funds rate at 4.00%&ndash;4.25% by year-end with no changes through 2027, on the reasoning that the excess inflation is supply-driven and the labor market is not overheating. After the October hold that year-end call needs a December move to land, and Lee&rsquo;s Q3 economic report has a majority of Fed officials signalling exactly that for the December 9 meeting, the last of the year.</details></li>
+          <li><details><summary><strong>GDP grew 3.4% in Q3</strong></summary>, faster than expected, on a surge in AI-related business investment and an upturn in government spending, partly offset by a downturn in exports. Sales to private domestic purchasers rose 4.9% against 4.6% in Q2, and consumer spending held at 3.8%. Lee&rsquo;s economists put the second quarter at 2.2%; the 1.5% figure reported here previously was the earlier advance estimate.</details></li>
+          <li><details><summary><strong>Inflation is still why.</strong></summary> Prices rose 3.5% year over year in Q3. The monthly measure ticked up 0.5% in September to 3.6%, the largest monthly gain since March and up from 2.7% for 2025, with energy goods and services jumping 5.4% in September as the Iran conflict kept fuel costs elevated. Households are covering it out of savings: Americans saved 4.1% of income in Q3, the least in almost four years.</details></li>
+          <li><details><summary><strong>Labor is steady rather than strong.</strong></summary> National unemployment was 4.2% in September with 7.1 million out of work, inside the 4.1%&ndash;4.3% band it has held since March. Layoffs are at a four-year low, 573,195 announced cuts through September and nearly 40% below the first nine months of 2025, but hiring is slow: September payrolls added 29,000 against a 45,000 twelve-month average, and average hourly earnings of $37.81 are up 3% over the year. Locally the picture is softer: Inland Empire unemployment is 5.5% and the labor force shrank 1.0% over twelve months.</details></li>
+          <li><details><summary><strong>AI construction is bidding for the same trades.</strong></summary> Goldman Sachs projects U.S. AI investment reaching 1.9% of GDP, and Columbia&rsquo;s Stijn van Nieuwerburgh puts data-center and infrastructure spending above $10 trillion through 2032, averaging 3.6% of GDP a year. Lee&rsquo;s economists note the server-farm build-out is adding construction jobs while driving up materials and labor costs. That is a floor under the cost of new industrial development and under any tenant improvement allowance priced for 2027 delivery.</details></li>
+          <li><details><summary><strong>CoStar&rsquo;s September 24 read on the Inland Empire</strong></summary> puts vacancy at 8.7% for 2026 Q3 and availability at 12.5%, a 15-year high, against a 6.2% historical average vacancy. Trailing 12-month net absorption is 6.0M SF versus a prior 10-year average of 17.5M SF, deliveries 7.7M SF, and market asking rent growth &minus;0.9%. Construction underway is 14.0M SF, down from the 45.7M SF peak in 2022, with less than 10M SF forecast for completion across 2026 and 2027.</details></li>
+        <li><details><summary><strong>CoStar&rsquo;s October 30 national forecast</strong></summary> holds industrial vacancy at its Q3 2026 level of 7.3% through 2027, easing only in 2028, a modest improvement on its prior view. Demand outruns new supply through the rest of 2026, then 2027 net absorption moderates to about 204M SF against roughly 243M SF of completions. CoStar warns that sustained speculative building would prolong elevated vacancy, and names mid-sized logistics product as the exposure. Not every house reads it that way: JLL&rsquo;s Q3 figures have national vacancy falling rather than flat. The disagreement is directional, not a rounding difference, and the supply pipeline is what separates them.</details></li>
+        </ul>
+        <details class="fold"><summary>What a hike does to the renewal question</summary>
+          <p>Relocation is capital. Racking, conveyor, dock equipment, moving the operation, the months of duplicate rent: most of it gets financed, and financing just got more expensive rather than less. That strengthens the case for negotiating hard where you already sit and weakens the cheap-capital case for moving. For owners it cuts the other way on a 2027 refinance, which is the same pressure that makes a landlord willing to trade on rent to keep a covenant in place.</p>
+        </details>
+      </div></section>
+<section style="display:flex;flex-direction:column;gap:6px">
       <div class="eyebrow">Coming weeks</div>
       <div class="rot">
         <div class="rot-item">
@@ -289,28 +197,6 @@
           <p>Issue 09: the switchgear you paid for, the landlord who keeps it, and gear that costs 89% more.</p>
         </div>
       </div>
-    </section>
-
-        <section class="panel subscribe" id="subscribe">
-      <div class="panel-head">
-        <h2>Get it Friday mornings</h2>
-        <span class="note">One email a week. Unsubscribe anytime.</span>
-      </div>
-      <p style="font-size:15px;color:var(--ink-2);max-width:62ch">Each issue costs out one thing Inland Empire industrial tenants are absorbing, with the arithmetic shown. No listings, no market cheerleading.</p>
-      <form id="subForm" novalidate>
-        <div class="fields">
-          <label class="fld"><span>Email</span><input type="email" name="email" required autocomplete="email" placeholder="you@company.com"></label>
-          <label class="fld"><span>Name <em>optional</em></span><input type="text" name="name" autocomplete="name"></label>
-          <label class="fld"><span>Company <em>optional</em></span><input type="text" name="company" autocomplete="organization"></label>
-        </div>
-        <input class="hp" type="text" name="hp" tabindex="-1" autocomplete="off" aria-hidden="true"
-               style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none">
-        <div class="subrow">
-          <button type="submit" class="btn">Subscribe</button>
-          <span class="submsg" id="subMsg" role="status" aria-live="polite"></span>
-        </div>
-        <p class="fineprint">Used to send the Watch and nothing else. Never sold or shared. Ed Smith, CCIM &middot; Lee &amp; Associates &ndash; Ontario &middot; 3535 Inland Empire Blvd, Ontario, CA 91764.</p>
-      </form>
     </section>
 <footer class="footer">
       <details class="srcbox">
