@@ -376,5 +376,5 @@ ul.tight.fold-list li details[open]>summary strong::after{content:" \2013"}
 
 /* ============ Article figures (added 2026-11-21) ============ */
 .fig{margin:4px 0;background:var(--panel);border:1px solid var(--line);padding:14px 16px 10px}
-.fig svg{display:block;width:100%;height:auto;max-width:720px}
+.fig svg{display:block;width:100%;height:auto}
 .fig figcaption{font-size:13px;line-height:1.5;color:var(--muted);margin-top:8px}
